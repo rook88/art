@@ -1,0 +1,29 @@
+{% include 'imageheader.html' %}
+<style>
+body {background-color: #EEEEEE;}
+.thumbnail {width:288px;height:192px;transform: rotate({{ angle | default(0) }}deg);}
+img:hover {
+  transform: rotate(10deg);
+}
+</style>
+
+<body>
+
+<h1>Dev gallery</h1>
+
+<table class = "asplit" cellpadding = 10px>
+{% for column in links|slice(3)   %}
+    <tr> 
+    {% for link in column %}
+        <td>
+        <div align = "center", vertical-align = "text-bottom">{{ link[-8:-4] }}</div>
+        <a href = "{{ link }}" target="_blank">
+            <img class = "thumbnail" src = "{{ link }}" >
+        </a>
+        </td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+</body>

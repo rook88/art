@@ -1,0 +1,43 @@
+{% include 'video_player.css' %}
+<video autoplay muted loop id="myVideo">
+  <source src="c:/work/output/koski3.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <h1>Ariel</h1>
+  <p>Maauimalan takana olevassa metsassa</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+    <p id = "tiedot"></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div>
+</div>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+    video.currentTime = video.duration * this.value / 100;
+}
+</script>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+var tiedot = document.getElementById("tiedot");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+    tiedot.innerHTML = video.currentTime;
+  }
+}
+</script>

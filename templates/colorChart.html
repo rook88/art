@@ -1,0 +1,11 @@
+<svg width="1000" height="{{ const.width * (1 + int(len(colors) / 10)) }}">
+{% for i in range(len(colors)) %}
+  <rect width="{{ const.width }}" height="{{ const.width }}" 
+    x="{{ (const.width + const.margin) * (i % 10) }}" 
+    y="{{ (const.width + const.margin) * int(i / 10) }}"
+    style="fill:rgb{{ tuple(colors[i]) }}" 
+    />
+{% endfor %}
+
+
+</svg>
